@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__.'/helpers.php';
+
 return [
 
     /*
@@ -43,15 +45,15 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => $database, // loaded from helpers.php
+            'username' => $username, // loaded from helpers.php
+            'password' => $password, // loaded from helpers.php
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => env('DB_PREFIX', ''),
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB',
         ],
 
         'pgsql' => [
